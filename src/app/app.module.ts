@@ -10,16 +10,18 @@ import { AboutComponent } from './components/about/about.component';
 import { SearchComponent } from './components/search/search.component';
 import { SpotifyService } from './services/spotify.service';
 import { ArtistComponent } from './components/artist/artist.component';
+import { AlbumComponent } from './components/album/album.component';
 
 const routes:Routes=[
   {path:'',component:SearchComponent},
   {path:'about',component:AboutComponent},
-  {path: 'artist/:id', component:ArtistComponent}
+  {path: 'artist/:id', component:ArtistComponent},
+  {path: 'album/:id', component:AlbumComponent}
 ]
 
 @NgModule({
   imports:      [ BrowserModule, RouterModule.forRoot(routes), FormsModule, HttpModule ],
-  declarations: [ AppComponent, NavbarComponent, AboutComponent, SearchComponent, ArtistComponent ],
+  declarations: [ AlbumComponent, AppComponent, NavbarComponent, AboutComponent, SearchComponent, ArtistComponent ],
   providers:    [ SpotifyService ],
   bootstrap:    [ AppComponent ]
 })

@@ -12,6 +12,7 @@ export class SpotifyService {
     private searchUrl: string;
     private artistUrl: string;
     private albumsUrl: string;
+    private albumUrl:  string;
 
     constructor(private _http:Http){ }
 
@@ -37,7 +38,6 @@ export class SpotifyService {
     }
 
     getArtist(id:string, mytoken:string) {
-        console.log(mytoken)
         let headers = new Headers();
         headers.append('Authorization', 'Bearer ' + mytoken );
         this.artistUrl = 'https://api.spotify.com/v1/artists/' + id;
@@ -46,12 +46,18 @@ export class SpotifyService {
     }
 
     getAlbums(artistId:string, mytoken:string) {
-        console.log(mytoken)
         let headers = new Headers();
         headers.append('Authorization', 'Bearer ' + mytoken );
         this.albumsUrl = 'https://api.spotify.com/v1/artists/' + artistId + '/albums';
         return this._http.get(this.albumsUrl, {headers: headers})
                 .map(res => res.json());
     }
-    
+
+    getAlbum(id:string, mytoken:string) {
+        let headers = new Headers();
+        headers.append('Authorization', 'Bearer ' + mytoken );
+        this.albumUrl = 'https://api.spotify.com/v1/albums/' + id;
+        return this._http.get(this.albumUrl, {headers: headers})
+                .map(res => res.json());
+    }
 }
