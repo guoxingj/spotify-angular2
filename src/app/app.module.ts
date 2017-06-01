@@ -10,6 +10,7 @@ import { AboutComponent } from './components/about/about.component';
 import { SearchComponent } from './components/search/search.component';
 import { SpotifyService } from './services/spotify.service';
 
+
 const routes:Routes=[
   {path:'',component:SearchComponent},
   {path:'about',component:AboutComponent}
@@ -17,7 +18,7 @@ const routes:Routes=[
 
 @NgModule({
   imports:      [ BrowserModule, RouterModule.forRoot(routes), FormsModule, HttpModule ],
-  declarations: [ AppComponent, NavbarComponent, AboutComponent, SearchComponent],
+  declarations: [ AppComponent, NavbarComponent, AboutComponent, SearchComponent ],
   providers:    [ SpotifyService ],
   bootstrap:    [ AppComponent ]
 })
