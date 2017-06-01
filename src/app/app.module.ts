@@ -9,16 +9,17 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { AboutComponent } from './components/about/about.component';
 import { SearchComponent } from './components/search/search.component';
 import { SpotifyService } from './services/spotify.service';
-
+import { ArtistComponent } from './components/artist/artist.component';
 
 const routes:Routes=[
   {path:'',component:SearchComponent},
-  {path:'about',component:AboutComponent}
+  {path:'about',component:AboutComponent},
+  {path: 'artist/:id', component:ArtistComponent}
 ]
 
 @NgModule({
   imports:      [ BrowserModule, RouterModule.forRoot(routes), FormsModule, HttpModule ],
-  declarations: [ AppComponent, NavbarComponent, AboutComponent, SearchComponent ],
+  declarations: [ AppComponent, NavbarComponent, AboutComponent, SearchComponent, ArtistComponent ],
   providers:    [ SpotifyService ],
   bootstrap:    [ AppComponent ]
 })
